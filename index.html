@@ -3,289 +3,272 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REVSCOLL STORE - Premium Footwear</title>
+    <title>Revscoll Store | Toko Sepatu Premium</title>
     <style>
-        :root {
-            --primary-color: #0d0d0d;
-            --accent-color: #d4af37; /* Warna Emas Megah */
-            --text-light: #ffffff;
-            --text-dark: #333333;
-            --bg-dark: #121212;
-            --bg-card: #1a1a1a;
-        }
-
+        /* Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
         }
 
-        /* Banner Utama / Hero Section */
+        /* Navigation */
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?q=80&w=1450&auto=format&fit=crop') no-repeat center center/cover;
+            background-color: #111;
+            color: #fff;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        header .logo span {
+            color: #ff4757;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff4757;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3') no-repeat center center/cover;
             height: 60vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            color: #fff;
             text-align: center;
-            padding: 20px;
-            border-bottom: 3px solid var(--accent-color);
-        }
-
-        header h1 {
-            font-size: 3rem;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: var(--text-light);
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-        }
-
-        header h1 span {
-            color: var(--accent-color);
-        }
-
-        header p {
-            font-size: 1.2rem;
-            color: #ccc;
-            max-width: 600px;
-            letter-spacing: 1px;
-        }
-
-        /* Container Produk */
-        .container {
-            max-width: 1200px;
-            margin: 60px auto;
             padding: 0 20px;
         }
 
-        .section-title {
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hero .btn {
+            background-color: #ff4757;
+            color: #fff;
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .hero .btn:hover {
+            background-color: #e84118;
+        }
+
+        /* Products Section */
+        .products-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .products-container h2 {
             text-align: center;
-            font-size: 2.2rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
             margin-bottom: 40px;
+            font-size: 32px;
             position: relative;
         }
 
-        .section-title::after {
+        .products-container h2::after {
             content: '';
-            display: block;
-            width: 80px;
+            width: 100px;
             height: 3px;
-            background-color: var(--accent-color);
-            margin: 15px auto 0;
+            background-color: #ff4757;
+            display: block;
+            margin: 10px auto 0;
         }
 
-        /* Grid Susunan Produk */
-        .product-row {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
-        /* Kartu Produk */
         .product-card {
-            background-color: var(--bg-card);
-            border: 1px solid #222;
+            background-color: #fff;
             border-radius: 8px;
-            width: 340px;
             overflow: hidden;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
-            border-color: var(--accent-color);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background-color: #eee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .product-info {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
+            padding: 20px;
         }
 
-        .product-title {
-            font-size: 1.4rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .product-info h3 {
+            font-size: 18px;
             margin-bottom: 10px;
-            color: var(--text-light);
         }
 
-        .product-price {
-            font-size: 1.3rem;
-            color: var(--accent-color);
+        .product-info .price {
+            color: #ff4757;
             font-weight: bold;
+            font-size: 16px;
             margin-bottom: 15px;
         }
 
-        .product-desc {
-            font-size: 0.95rem;
-            color: #bbb;
-            margin-bottom: 20px;
-            flex-grow: 1;
-            text-align: justify;
-        }
-
-        .product-details {
-            border-top: 1px solid #2a2a2a;
-            padding-top: 15px;
-            margin-bottom: 20px;
-            font-size: 0.85rem;
-            color: #aaa;
-        }
-
-        .product-details p {
-            margin-bottom: 5px;
-        }
-
-        .product-details strong {
-            color: var(--text-light);
-        }
-
-        /* Tombol Order Megah */
-        .btn-order {
+        .product-info .buy-btn {
             display: block;
             text-align: center;
-            background-color: transparent;
-            color: var(--accent-color);
-            border: 2px solid var(--accent-color);
-            padding: 12px 20px;
+            background-color: #111;
+            color: #fff;
+            padding: 10px;
             text-decoration: none;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
             border-radius: 4px;
-            transition: all 0.3s ease;
+            transition: background 0.3s;
         }
 
-        .btn-order:hover {
-            background-color: var(--accent-color);
-            color: var(--primary-color);
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        .product-info .buy-btn:hover {
+            background-color: #ff4757;
         }
 
         /* Footer */
         footer {
-            background-color: #0a0a0a;
+            background-color: #111;
+            color: #fff;
             text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid #1a1a1a;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        footer p strong {
-            color: var(--accent-color);
+            padding: 20px;
+            margin-top: 50px;
+            font-size: 14px;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>REVSCOLL <span>STORE</span></h1>
-        <p>Melangkah dengan Kemegahan dan Kenyamanan Maksimal. Koleksi Sepatu Premium Pilihan Terbaik untuk Gaya Hidup Modern Anda.</p>
+        <div class="logo">REVSCOLL<span>STORE</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Produk</a></li>
+                <li><a href="#">Tentang Kami</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <div class="container">
-        <h2 class="section-title">Koleksi Eksklusif Kami</h2>
+    <section class="hero">
+        <h1>Langkah Pasti dengan Gaya Premium</h1>
+        <p>Temukan koleksi sepatu terbaik dan original hanya di Revscoll Store.</p>
+        <a href="#" class="btn">Belanja Sekarang</a>
+    </section>
+
+    <section class="products-container">
+        <h2>Koleksi Terbaru</h2>
         
-        <div class="product-row">
-            
+        <div class="product-grid">
             <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-4.0.3" alt="Sepatu Sport Alpha">
+                </div>
                 <div class="product-info">
-                    <h3 class="product-title">Puma Speedcat</h3>
-                    <div class="product-price">Rp 145.000</div>
-                    <p class="product-desc">
-                        Ikon streetwear yang lahir dari lintasan balap. Puma Speedcat memadukan estetika motorsport klasik dengan kenyamanan urban modern. Desainnya yang ramping memberikan siluet dinamis yang sangat elegan saat dikenakan untuk aktivitas kasual harian Anda.
-                    </p>
-                    <div class="product-details">
-                        <p><strong>Variasi Warna:</strong> Hitam Putih, Merah, Biru Muda, Pink</p>
-                        <p><strong>Ukuran Tersedia:</strong> 36 - 43</p>
-                    </div>
-                    <a href="http://revscoll.roms.id/sukusikidulls" class="btn-order" target="_blank">Order Sekarang</a>
+                    <h3>Revscoll Alpha Sport</h3>
+                    <div class="price">Rp 750.000</div>
+                    <a href="#" class="buy-btn">Beli Sekarang</a>
                 </div>
             </div>
 
             <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3" alt="Sepatu Casual Street">
+                </div>
                 <div class="product-info">
-                    <h3 class="product-title">Puma XL</h3>
-                    <div class="product-price">Rp 138.000</div>
-                    <p class="product-desc">
-                        Menampilkan siluet yang lebih tegas dan berani, Puma XL dirancang khusus bagi Anda yang menyukai tampilan chunky dan penuh percaya diri. Dilengkapi dengan sol tebal yang empuk, sepatu ini menjamin kenyamanan maksimal sepanjang hari tanpa mengorbankan estetika visual yang trendi.
-                    </p>
-                    <div class="product-details">
-                        <p><strong>Variasi Warna:</strong> Kombinasi Warna Premium</p>
-                        <p><strong>Ukuran Tersedia:</strong> 37 - 44</p>
-                    </div>
-                    <a href="http://revscoll.roms.id/sukusikidulls" class="btn-order" target="_blank">Order Sekarang</a>
+                    <h3>Revscoll Street Casual</h3>
+                    <div class="price">Rp 620.000</div>
+                    <a href="#" class="buy-btn">Beli Sekarang</a>
                 </div>
             </div>
 
             <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-4.0.3" alt="Sepatu Classic White">
+                </div>
                 <div class="product-info">
-                    <h3 class="product-title">Adidas Adizero</h3>
-                    <div class="product-price">Rp 150.000</div>
-                    <p class="product-desc">
-                        Didesain untuk kecepatan dan performa tinggi, Adidas Adizero menghadirkan struktur super ringan dengan sirkulasi udara optimal. Sangat cocok bagi Anda yang aktif bergerak, berolahraga, atau menginginkan sepatu sport-casual dengan teknologi bantalan responsif yang memanjakan kaki.
-                    </p>
-                    <div class="product-details">
-                        <p><strong>Variasi Warna:</strong> Sporty Edition Colors</p>
-                        <p><strong>Ukuran Tersedia:</strong> 38 - 44</p>
-                    </div>
-                    <a href="http://revscoll.roms.id/sukusikidulls" class="btn-order" target="_blank">Order Sekarang</a>
+                    <h3>Revscoll Classic White</h3>
+                    <div class="price">Rp 580.000</div>
+                    <a href="#" class="buy-btn">Beli Sekarang</a>
                 </div>
             </div>
 
             <div class="product-card">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-4.0.3" alt="Sepatu Runner Pro">
+                </div>
                 <div class="product-info">
-                    <h3 class="product-title">Vans Knu Skool</h3>
-                    <div class="product-price">Rp 125.000</div>
-                    <p class="product-desc">
-                        Interpretasi modern dari gaya skateboard klasik era 90-an. Vans Knu tampil dengan lidah sepatu yang tebal (puffy) dan sidestripe 3D yang ikonik. Memberikan kesan retro-skate yang tebal, kokoh, dan sangat cocok dipadukan dengan celana oversized untuk gaya streetwear sejati.
-                    </p>
-                    <div class="product-details">
-                        <p><strong>Variasi Warna:</strong> Classic Black & Core Colors</p>
-                        <p><strong>Ukuran Tersedia:</strong> 36 - 43</p>
-                    </div>
-                    <a href="http://revscoll.roms.id/sukusikidulls" class="btn-order" target="_blank">Order Sekarang</a>
+                    <h3>Revscoll Runner Pro</h3>
+                    <div class="price">Rp 890.000</div>
+                    <a href="#" class="buy-btn">Beli Sekarang</a>
                 </div>
             </div>
-
-            <div class="product-card">
-                <div class="product-info">
-                    <h3 class="product-title">Adidas Campus</h3>
-                    <div class="product-price">Rp 135.000</div>
-                    <p class="product-desc">
-                        Sepatu legendaris dengan material suede berkualitas tinggi yang memancarkan kesan mewah namun tetap minimalis. Adidas Campus adalah definisi dari gaya timeless yang tidak pernah salah, sangat mudah dipadukan dengan pakaian formal maupun santai untuk tampilan yang rapi dan elegan.
-                    </p>
-                    <div class="product-details">
-                        <p><strong>Variasi Warna:</strong> Retro Suede Collection</p>
-                        <p><strong>Ukuran Tersedia:</strong> 37 - 43</p>
-                    </div>
-                    <a href="http://revscoll.roms.id/sukusikidulls" class="btn-order" target="_blank">Order Sekarang</a>
-                </div>
-            </div>
-
         </div>
-    </div>
+    </section>
 
     <footer>
-        <p>&copy; 2026 <strong>REVSCOLL STORE</strong>. All Rights Reserved. Kemegahan dalam Setiap Langkah.</p>
+        <p>&copy; 2026 Revscoll Store. All Rights Reserved.</p>
     </footer>
 
 </body>
